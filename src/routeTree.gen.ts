@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BugsRouteImport } from './routes/bugs'
+import { Route as EvidenceRouteImport } from './routes/evidence'
+import { Route as ExecutionsRouteImport } from './routes/executions'
+import { Route as ExplorationRouteImport } from './routes/exploration'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as ResultsRouteImport } from './routes/results'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as TestCasesRouteImport } from './routes/test-cases'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BugsRoute = BugsRouteImport.update({
+  id: '/bugs',
+  path: '/bugs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EvidenceRoute = EvidenceRouteImport.update({
+  id: '/evidence',
+  path: '/evidence',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExecutionsRoute = ExecutionsRouteImport.update({
+  id: '/executions',
+  path: '/executions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExplorationRoute = ExplorationRouteImport.update({
+  id: '/exploration',
+  path: '/exploration',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResultsRoute = ResultsRouteImport.update({
+  id: '/results',
+  path: '/results',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestCasesRoute = TestCasesRouteImport.update({
+  id: '/test-cases',
+  path: '/test-cases',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bugs': typeof BugsRoute
+  '/evidence': typeof EvidenceRoute
+  '/executions': typeof ExecutionsRoute
+  '/exploration': typeof ExplorationRoute
+  '/projects': typeof ProjectsRoute
+  '/results': typeof ResultsRoute
+  '/settings': typeof SettingsRoute
+  '/test-cases': typeof TestCasesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bugs': typeof BugsRoute
+  '/evidence': typeof EvidenceRoute
+  '/executions': typeof ExecutionsRoute
+  '/exploration': typeof ExplorationRoute
+  '/projects': typeof ProjectsRoute
+  '/results': typeof ResultsRoute
+  '/settings': typeof SettingsRoute
+  '/test-cases': typeof TestCasesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bugs': typeof BugsRoute
+  '/evidence': typeof EvidenceRoute
+  '/executions': typeof ExecutionsRoute
+  '/exploration': typeof ExplorationRoute
+  '/projects': typeof ProjectsRoute
+  '/results': typeof ResultsRoute
+  '/settings': typeof SettingsRoute
+  '/test-cases': typeof TestCasesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/bugs'
+    | '/evidence'
+    | '/executions'
+    | '/exploration'
+    | '/projects'
+    | '/results'
+    | '/settings'
+    | '/test-cases'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/bugs'
+    | '/evidence'
+    | '/executions'
+    | '/exploration'
+    | '/projects'
+    | '/results'
+    | '/settings'
+    | '/test-cases'
+  id:
+    | '__root__'
+    | '/'
+    | '/bugs'
+    | '/evidence'
+    | '/executions'
+    | '/exploration'
+    | '/projects'
+    | '/results'
+    | '/settings'
+    | '/test-cases'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BugsRoute: typeof BugsRoute
+  EvidenceRoute: typeof EvidenceRoute
+  ExecutionsRoute: typeof ExecutionsRoute
+  ExplorationRoute: typeof ExplorationRoute
+  ProjectsRoute: typeof ProjectsRoute
+  ResultsRoute: typeof ResultsRoute
+  SettingsRoute: typeof SettingsRoute
+  TestCasesRoute: typeof TestCasesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bugs': {
+      id: '/bugs'
+      path: '/bugs'
+      fullPath: '/bugs'
+      preLoaderRoute: typeof BugsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/evidence': {
+      id: '/evidence'
+      path: '/evidence'
+      fullPath: '/evidence'
+      preLoaderRoute: typeof EvidenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/executions': {
+      id: '/executions'
+      path: '/executions'
+      fullPath: '/executions'
+      preLoaderRoute: typeof ExecutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exploration': {
+      id: '/exploration'
+      path: '/exploration'
+      fullPath: '/exploration'
+      preLoaderRoute: typeof ExplorationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/results': {
+      id: '/results'
+      path: '/results'
+      fullPath: '/results'
+      preLoaderRoute: typeof ResultsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/test-cases': {
+      id: '/test-cases'
+      path: '/test-cases'
+      fullPath: '/test-cases'
+      preLoaderRoute: typeof TestCasesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BugsRoute: BugsRoute,
+  EvidenceRoute: EvidenceRoute,
+  ExecutionsRoute: ExecutionsRoute,
+  ExplorationRoute: ExplorationRoute,
+  ProjectsRoute: ProjectsRoute,
+  ResultsRoute: ResultsRoute,
+  SettingsRoute: SettingsRoute,
+  TestCasesRoute: TestCasesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
