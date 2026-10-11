@@ -21,7 +21,7 @@ const Ctx = createContext<Store | null>(null);
 
 export function StoreProvider({ children }: { children: ReactNode }) {
   const [projects, setProjects] = useState(seedProjects);
-  const [activeProjectId, setActiveProjectId] = useState(seedProjects[0].id);
+  const [activeProjectId, setActiveProjectId] = useState(seedProjects[0]!.id);
   const [exploration, setExploration] = useState<Store["exploration"]>({ running: false, progress: 100, phase: agentPhases.length - 1, log: [] });
   const [run, setRun] = useState({ running: false, paused: false, line: executionScript.length });
   const runRef = useRef(run);
@@ -60,7 +60,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     },
     activeProjectId,
     setActiveProjectId,
-    activeProject: projects.find((p) => p.id === activeProjectId) ?? projects[0],
+    activeProject: projects.find((p) => p.id === activeProjectId) ?? projects[0]!,
     exploration,
     startExploration: (config) => setExploration({ running: true, progress: 0, phase: 0, config, log: [`${agentPhases[0]} started`] }),
     run,

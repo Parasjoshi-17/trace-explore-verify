@@ -23,7 +23,7 @@ function Bugs() {
   const [sev, setSev] = useState<(typeof sevs)[number]>("all");
   const [status, setStatus] = useState("all");
   const list = bugs.filter((b) => (sev === "all" || b.severity === sev) && (status === "all" || b.status === status));
-  const [id, setId] = useState(bugs[0].id);
+  const [id, setId] = useState(bugs[0]!.id);
   const b = list.find((x) => x.id === id) ?? list[0];
   const tc = b && testCases.find((t) => t.id === b.test);
 

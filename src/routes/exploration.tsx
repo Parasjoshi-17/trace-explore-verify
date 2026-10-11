@@ -24,9 +24,9 @@ function Exploration() {
   const { activeProject, exploration, startExploration } = useStore();
   const [nodeId, setNodeId] = useState("checkout");
   const node = flowNodes.find((n) => n.id === nodeId)!;
-  const [elId, setElId] = useState(node.elements[0].id);
-  const element = node.elements.find((e) => e.id === elId) ?? node.elements[0];
-  const pick = (id: string) => { setNodeId(id); setElId(flowNodes.find((n) => n.id === id)!.elements[0].id); };
+  const [elId, setElId] = useState(node.elements[0]!.id);
+  const element = node.elements.find((e) => e.id === elId) ?? node.elements[0]!;
+  const pick = (id: string) => { setNodeId(id); setElId(flowNodes.find((n) => n.id === id)!.elements[0]!.id); };
   const total = flowNodes.reduce((a, n) => a + n.elements.length, 0);
 
   return (
